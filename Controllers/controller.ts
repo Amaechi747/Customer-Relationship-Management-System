@@ -7,39 +7,18 @@ import bcrypt from 'bcryptjs';
 import {v4 as uuidv4} from 'uuid'; 
 import jwt from 'jsonwebtoken';
 import { validateUser, validateUserLoginDetails } from '../models/inputValidator';
-// export const newClient = async function(details: InewCustomer){
-//     const {fullname, email, gender, phone, address, notes} = await details;
-//     const customer: IdataSchema = {
-//         "id": ++customerID,
-//         "fullname": fullname,
-//         "email": email,
-//         "gender": gender,
-//         "phone": phone,
-//         "address": address,
-//         "notes": notes || ' '
-//     }
-//     // Add new customer to database
-//     const allData = await fetchData();
-//     writeData(customer, allData);
-
-//     return allData;
-// }
-
 
 export const getCustomers = asyncHandler(async function (req:Request, res: Response, next: NextFunction) {
     
     const data = await findAllData();
     res.status(200).render('showCustomers', {title: 'Customers', data});
-    // Array to render
-    // res.render('index', { title: 'Express' });
   })
 
 export const getCustomersById = asyncHandler(async function(req:Request, res: Response, next: NextFunction) {
     const id = Number(req.params.id);
+    const user = req.user;
     const data = await findById(id);
-    res.status(200).json(data);
-    // Single customer to render
-    // res.render('index', { title: 'Express' });
+    res.status(200).render('getById', {title: "Customer", data, user: user?.fullname});
   })
 
 
@@ -48,8 +27,6 @@ export const addCustomer = asyncHandler(async function(req:Request, res: Respons
     const data = await createData(customerDetails);
     const allData = await findAllData();
     res.status(200).render('showCustomers', {title: 'Customers', data: allData});
-    // Array to render
-    // await res.render('index', { title: 'Express' });
   })
 
 
@@ -62,8 +39,6 @@ export const updateCustomerDetails = asyncHandler(async function(req:Request, re
     const customerDetails: IupdateCustomer = req.body;
     const data = await updateData(customerDetails);
     res.status(200).redirect('/users');
-    // Array to render
-    // res.render('index', { title: 'Express' });
   })
 
 
@@ -76,8 +51,6 @@ export const deleteCustomerDetails = asyncHandler(async function(req:Request, re
       throw new Error('No customer which such id exists');
     }
     res.status(200).render('showCustomers', {title: 'Customers', data});
-    // Array to render. When deleted, Take user to the all customers page
-    // res.render('index', { title: 'Express' });
   })
 
   export const getAddCustomerPage = asyncHandler(async function(req:Request, res: Response, next: NextFunction){
@@ -190,12 +163,11 @@ export const loginUser = asyncHandler(async function(req: Request, res: Response
     }
   }
 
-  // res.json({message: 'Logged In'})
 })  
 
 export const logout = asyncHandler( async function(req: Request, res: Response, next: NextFunction){
     if(req.cookies.token){
-      req.cookies.token = null;
+      res.cookie(req.cookies.token, null) 
       res.status(200).redirect('/');
     }
 })
@@ -210,5 +182,5 @@ const generateToken = function(id: string){
     
 }
 
-/*********************************** */
+/*****************************************************************The End******************************************************************/
 

@@ -17,6 +17,7 @@
                 <th scope="col">Note</th>
                 <th scope="col">Delete Customer</th>
                 <th scope="col">Update Customer</th>
+                <th scope="col">Get Customer</th>
               </tr>
             </thead>
             <tbody>
@@ -32,6 +33,7 @@
                         <td><%= data[i].notes %></td>
                         <td><a  href="/users/customers/delete/<%= data[i].id %>"> Delete </a></td>
                         <td><a  href="/users/update/<%= data[i].id %>"> Update </a></td>
+                        <td><a  href="/users/<%= data[i].id %>"> Select </a></td>
                     </tr>
                 <% } %>
             <% } %>
@@ -39,7 +41,7 @@
           </table>
           <div>
             <a class="btn btn-outline-primary" href="/users/add">Add Customer</a>
-            <a class="btn btn-outline-secondary" href="/users/">Get Customer By Id</a>
+            <a class="btn btn-outline-secondary" href="/users/update">Update Customer</a>
           </div>
 
   </div>

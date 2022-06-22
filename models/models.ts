@@ -1,6 +1,4 @@
 import {fetchData, writeData, writeUpdatedData} from '../utils/utils'
-// import{newClient} from '../Controllers/controller';
-
 
 export const findAllData = async function (){
     const allData = await fetchData();
@@ -13,10 +11,8 @@ export const findById = async function(id: number){
     return data          
 }
 
-// let customerID = 0;
+
 export const createData = async function(details: InewCustomer){
-    // const newCustomer = await newClient(details);
-    // return newCustomer; 
     const allData = await fetchData();
     let lastIndex = allData.length;
     if (lastIndex == 0){
@@ -24,8 +20,6 @@ export const createData = async function(details: InewCustomer){
     }else if((lastIndex !== 0)){
         lastIndex =  allData[lastIndex - 1].id + 1
     }
-    // const uniqueId = (allData[lastIndex].id !== undefined) && (lastIndex == allData[lastIndex].id) ? lastIndex + 1 : (lastIndex === -1) ? lastIndex + 2 : lastIndex;
-    // console.log(`Bug:${uniqueId}found`);
     const {fullname, email, gender, phone, address, notes} = await details;
     const customerID = lastIndex;
     const customer: IdataSchema = {
@@ -37,8 +31,6 @@ export const createData = async function(details: InewCustomer){
         "address": address,
         "notes": notes || ' '
     }
-    // console.log(customerID)
-    // Add new customer to database
     
     writeData(customer, allData);
 
