@@ -1,0 +1,92 @@
+[
+   {
+      "id": 1,
+      "fullname": "Amaechi Moses",
+      "email": "amaechimoses.online@gmail.com",
+      "gender": "Male",
+      "phone": "+2348136150194",
+      "address": "Decagon",
+      "notes": "This is good"
+   },
+   {
+      "id": 5,
+      "fullname": "Moses",
+      "email": "emmatechs@gmail.com",
+      "gender": "Female",
+      "phone": "+2347085647535",
+      "address": "Abuja",
+      "notes": "Debt free"
+   },
+   {
+      "id": 7,
+      "fullname": "Amaechi Moses",
+      "email": "amechi@gmail.com",
+      "gender": "Male",
+      "phone": "08136150194",
+      "address": "Decagom",
+      "notes": "This is a boy."
+   },
+   {
+      "id": 8,
+      "fullname": "Paul",
+      "email": "amaechimosesweb@gmail.com",
+      "gender": "Male",
+      "phone": "081243562816",
+      "address": "Decagon",
+      "notes": "Owes #500"
+   },
+   {
+      "id": 10,
+      "fullname": "Paul",
+      "email": "amaechimosesweb@gmail.com",
+      "gender": "Male",
+      "phone": "081243562816",
+      "address": "Decagon",
+      "notes": "Owes #500"
+   },
+   {
+      "id": 11,
+      "fullname": "Paul",
+      "email": "amaechimosesweb@gmail.com",
+      "gender": "Male",
+      "phone": "081243562816",
+      "address": "Decagon",
+      "notes": "Owes #500"
+   },
+   {
+      "id": 14,
+      "fullname": "Paul",
+      "email": "amaechimosesweb@gmail.com",
+      "gender": "Male",
+      "phone": "081243562816",
+      "address": "Decagon",
+      "notes": "Owes #500"
+   },
+   {
+      "id": 15,
+      "fullname": "Paul",
+      "email": "amaechimosesweb@gmail.com",
+      "gender": "Male",
+      "phone": "081243562816",
+      "address": "Decagon",
+      "notes": "Owes #500"
+   },
+   {
+      "id": 19,
+      "fullname": "Amaechi Moses",
+      "email": "amechimoses8@gmail.com",
+      "gender": "Male",
+      "phone": "08136158195",
+      "address": "Nigeria",
+      "notes": "Nice"
+   },
+   {
+      "id": 20,
+      "fullname": "Moses Amaechi",
+      "email": "moses.amaechi@decagon.dev",
+      "gender": "Male",
+      "phone": "+2348136150194",
+      "address": "Lagos",
+      "notes": "This is nice"
+   }
+]

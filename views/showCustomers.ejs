@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head.ejs') %>
+  <title>CRM By Moses | <%= title %></title>
+<body>
+  <%- include('./partials/navbar.ejs') %>
+  <div class="container-fluid">
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Address</th>
+                <th scope="col">Note</th>
+                <th scope="col">Delete Customer</th>
+                <th scope="col">Update Customer</th>
+              </tr>
+            </thead>
+            <tbody>
+            <% if (data){ %>
+                <% for(let i = 0; i < data.length; i++){%>
+                    <tr>
+                        <th scope="row"><%= data[i].id %></th>
+                        <td><%= data[i].fullname %></td>
+                        <td><%= data[i].email %></td>
+                        <td><%= data[i].gender %></td>
+                        <td><%= data[i].phone %></td>
+                        <td><%= data[i].address %></td>
+                        <td><%= data[i].notes %></td>
+                        <td><a  href="/users/customers/delete/<%= data[i].id %>"> Delete </a></td>
+                        <td><a  href="/users/update/<%= data[i].id %>"> Update </a></td>
+                    </tr>
+                <% } %>
+            <% } %>
+            </tbody>
+          </table>
+          <div>
+            <a class="btn btn-outline-primary" href="/users/add">Add Customer</a>
+            <a class="btn btn-outline-secondary" href="/users/">Get Customer By Id</a>
+          </div>
+
+  </div>
+    
+
+ 
+
+
+
+  <%- include('./partials/footer.ejs') %>
+</body>
+</html>
+

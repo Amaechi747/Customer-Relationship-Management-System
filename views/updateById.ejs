@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head.ejs') %>
+  <title>CRM By Moses | <%= title %></title>
+<body>
+  <%- include('./partials/navbar.ejs') %>
+  <div class="container-fluid">
+      <div class="col text-center py-3">
+        <h1>Update Customer Details</h1>
+      </div>
+      <div class="row g-6">
+        <div class="col-6 offset-3 border-secondary shadow py-3 px-5 rounded">
+          <form class="form_container" method="post" action="/users/update?_method=PUT" enctype="application/x-www-form-urlencoded">
+            <div class="form-group mb-1">
+              <label for="id" class="form-label"></label>
+              <div class="">
+                <input type="id" class="form-control" id="id" placeholder="id" name="id" value="<%=id%>" >
+              </div>
+            </div>
+            <div class="form-group mb-1">
+              <label for="name" class="form-label"></label>
+              <div class="">
+                <input type="name" class="form-control" id="name" placeholder="Full name" name="fullname">
+              </div>
+            </div>
+            <div class="form-group mb-1">
+              <label for="colFormLabel" class="form-label"></label>
+              <div class="">
+                <input type="email" class="form-control" id="colFormLabel" placeholder="Email" name="email">
+              </div>
+            </div>
+            <div class="form-group mb-1">
+              <label for="gender" class="form-label"></label>
+              <div class="">
+                <input type="text" class="form-control" id="gender" placeholder="gender" name="gender">
+              </div>
+            </div>
+            <div class="form-group mb-1">
+              <label for="phone" class="form-label"></label>
+              <div class="">
+                <input type="text" class="form-control" id="phone" placeholder="phone" name="phone">
+              </div>
+            </div>
+            <div class="form-group mb-1">
+              <label for="address" class="form-label"></label>
+              <div class="">
+                <input type="text" class="form-control" id="address" placeholder="address" name="address">
+              </div>
+            </div>
+       
+            <div class="form-group mb-5">
+              <label for="notes" class="form-label"></label>
+              <div class="">
+                <textarea type="text" class="form-control" id="notes" placeholder="notes" name="notes"></textarea>
+              </div>
+            </div>
+            <div class="form-group mb-3">
+              <div class="text-center">
+                <input type="submit" class="btn btn-primary" id="submit" value="Update" >
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+  </div>
+    
+
+ 
+
+
+
+  <%- include('./partials/footer.ejs') %>
+</body>
+</html>
+

@@ -1,0 +1,20 @@
+[
+   {
+      "id": "454cb172-e73f-49a7-a9f4-301767550281",
+      "fullname": "Yusuf",
+      "email": "yusuf@example.com",
+      "password": "$2a$10$Bq67wW.3seaZESB4jqZ//.iE16JFk9jMSao5EXOiVyzVEfvBLzK0S"
+   },
+   {
+      "id": "96633fb9-44ec-43c3-9850-b7889fbccd25",
+      "fullname": "Yusuf",
+      "email": "yusufalka@example.com",
+      "password": "$2a$10$n4Kko12vEZ6y.S6AMjqu5.EJPXdsprN4aotd9deJGw0ixLFrQzwdK"
+   },
+   {
+      "id": "d86dcf96-42a9-4af4-bd43-edd88a256081",
+      "fullname": "Moses Amaechi",
+      "email": "moses.amaechi@decagon.dev",
+      "password": "$2a$10$LIUtLTalzOGLQTOpNF2xx.20eZW4QCJTUyzHYy49BvbbcOHzyQana"
+   }
+]
