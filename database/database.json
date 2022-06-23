@@ -27,66 +27,30 @@
       "notes": "This is a boy."
    },
    {
-      "id": 8,
-      "fullname": "Paul",
-      "email": "amaechimosesweb@gmail.com",
-      "gender": "Male",
-      "phone": "081243562816",
-      "address": "Decagon",
-      "notes": "Owes #500"
-   },
-   {
-      "id": 10,
-      "fullname": "Paul",
-      "email": "amaechimosesweb@gmail.com",
-      "gender": "Male",
-      "phone": "081243562816",
-      "address": "Decagon",
-      "notes": "Owes #500"
-   },
-   {
-      "id": 11,
-      "fullname": "Paul",
-      "email": "amaechimosesweb@gmail.com",
-      "gender": "Male",
-      "phone": "081243562816",
-      "address": "Decagon",
-      "notes": "Owes #500"
-   },
-   {
-      "id": 14,
-      "fullname": "Paul",
-      "email": "amaechimosesweb@gmail.com",
-      "gender": "Male",
-      "phone": "081243562816",
-      "address": "Decagon",
-      "notes": "Owes #500"
-   },
-   {
-      "id": 15,
-      "fullname": "Paul",
-      "email": "amaechimosesweb@gmail.com",
-      "gender": "Male",
-      "phone": "081243562816",
-      "address": "Decagon",
-      "notes": "Owes #500"
-   },
-   {
-      "id": 19,
-      "fullname": "Amaechi Moses",
-      "email": "amechimoses8@gmail.com",
-      "gender": "Male",
-      "phone": "08136158195",
-      "address": "Nigeria",
-      "notes": "Nice"
-   },
-   {
       "id": 20,
-      "fullname": "Moses Amaechi",
-      "email": "moses.amaechi@decagon.dev",
+      "fullname": "Mr. Moses Ikenna Amaechi",
+      "email": "amaechimoses8@gmail.com",
       "gender": "Male",
       "phone": "+2348136150194",
       "address": "Lagos",
       "notes": "This is nice"
+   },
+   {
+      "id": 21,
+      "fullname": "Mr. Moses Ikenna Amaechi",
+      "email": "amaechimoses8@gmail.com",
+      "gender": "Male",
+      "phone": "+2348136150194",
+      "address": "Lagos",
+      "notes": " "
+   },
+   {
+      "id": 22,
+      "fullname": "Mr. Moses Ikenna Amaechi",
+      "email": "amaechimoses@gmail.com",
+      "gender": "Male",
+      "phone": "+2348136150194",
+      "address": "Lagos",
+      "notes": "Funny"
    }
 ]

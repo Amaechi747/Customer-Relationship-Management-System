@@ -12,7 +12,8 @@ const router = express.Router()
 /* GET home page. */
 router.get('/', async function(req, res, next){
   // const data = await findAllData();
-  res.render('index', { title: 'Home' });
+  const token = req.cookies.token
+  res.render('index', { title: 'Home', token});
 });
 
 //@Register User

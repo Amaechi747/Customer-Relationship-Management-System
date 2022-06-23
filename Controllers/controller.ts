@@ -9,16 +9,19 @@ import jwt from 'jsonwebtoken';
 import { validateUser, validateUserLoginDetails } from '../models/inputValidator';
 
 export const getCustomers = asyncHandler(async function (req:Request, res: Response, next: NextFunction) {
-    
+    const token = req.cookies.token;
+    const user = req.user?.fullname;
     const data = await findAllData();
-    res.status(200).render('showCustomers', {title: 'Customers', data});
+    res.status(200).render('showCustomers', {title: 'Customers', data, token, user});
   })
 
 export const getCustomersById = asyncHandler(async function(req:Request, res: Response, next: NextFunction) {
     const id = Number(req.params.id);
     const user = req.user;
     const data = await findById(id);
-    res.status(200).render('getById', {title: "Customer", data, user: user?.fullname});
+    const token = req.cookies.token
+    
+    res.status(200).render('getById', {title: "Customer", data, user: user?.fullname, token});
   })
 
 
@@ -26,7 +29,9 @@ export const addCustomer = asyncHandler(async function(req:Request, res: Respons
     const customerDetails: InewCustomer = req.body;
     const data = await createData(customerDetails);
     const allData = await findAllData();
-    res.status(200).render('showCustomers', {title: 'Customers', data: allData});
+    const token = req.cookies.token
+    const user = req.user?.fullname
+    res.status(200).render('showCustomers', {title: 'Customers', data: allData, token, user});
   })
 
 
@@ -35,8 +40,8 @@ export const updateCustomerDetails = asyncHandler(async function(req:Request, re
         res.status(400);
         throw new Error('No new data given');
     }
-    console.log(req.body)
     const customerDetails: IupdateCustomer = req.body;
+    const token = req.cookies.token
     const data = await updateData(customerDetails);
     res.status(200).redirect('/users');
   })
@@ -50,7 +55,9 @@ export const deleteCustomerDetails = asyncHandler(async function(req:Request, re
       res.status(404);
       throw new Error('No customer which such id exists');
     }
-    res.status(200).render('showCustomers', {title: 'Customers', data});
+    const token = req.cookies.token
+    const user = req.user?.fullname
+    res.status(200).render('showCustomers', {title: 'Customers', data, token, user});
   })
 
   export const getAddCustomerPage = asyncHandler(async function(req:Request, res: Response, next: NextFunction){
@@ -58,16 +65,17 @@ export const deleteCustomerDetails = asyncHandler(async function(req:Request, re
     if(!token){
       res.status(401).render('login')
     }
-    res.status(201).render('addCustomer', {title: 'Add Customer', token: token});
+    const user = req.user?.fullname
+    res.status(201).render('addCustomer', {title: 'Add Customer', token: token, user});
   })
 
 export const getUpdatePage = asyncHandler(async function(req:Request, res: Response, next: NextFunction){
   const token = req.cookies.token
-  console.log(token)
   if(!token){
     res.status(401).render('login')
   }
-  res.status(201).render('update', {title: 'Update', token: token});
+  const user = req.user?.fullname
+  res.status(201).render('update', {title: 'Update', token: token, user});
 })
 
 export const getUpdatePageById = asyncHandler(async function(req:Request, res: Response, next: NextFunction){
@@ -76,7 +84,8 @@ export const getUpdatePageById = asyncHandler(async function(req:Request, res: R
   if(!token){
     res.status(401).render('login')
   }
-  res.status(201).render('updateById', {title: 'Update', token: token, id: id});
+  const user = req.user?.fullname
+  res.status(201).render('updateById', {title: 'Update', token: token, id: id, user});
 })
 
 
@@ -84,16 +93,21 @@ export const getCustomerToDelete = asyncHandler(async function(req:Request, res:
     const reqPath = req.path;
     const user = req.user;
     const customerId = reqPath.split('/')[3];
-    res.status(201).render('deleteCustomer', {title: 'Delete Customer Records', id: customerId, user: user?.fullname})
+    const token = req.cookies.token
+    res.status(201).render('deleteCustomer', {title: 'Delete Customer Records',token , id: customerId, user: user?.fullname})
 })
 
 /*******************************************Authentication and Authorization************************************/
 
 export const getRegisterPage = asyncHandler(async function(req:Request, res: Response, next: NextFunction){
-  res.render('register', {title: "Register"})
+  const token = req.cookies.token
+  const user = req.user?.fullname
+  res.render('register', {title: "Register", token, user})
 })
 export const getLoginPage = asyncHandler(async function(req:Request, res: Response, next: NextFunction){
-  res.render('login', {title: "Login"})
+  const token = req.cookies.token
+  const user = req.user?.fullname
+  res.render('login', {title: "Login", token, user})
 })
 
 
@@ -103,7 +117,6 @@ export const registerUser = asyncHandler(async function(req:Request, res: Respon
   const {name, email, password, confirmPassword, access_token} = req.body
   const valid = await validateUser(name, email, password, confirmPassword, access_token)
   if(valid){
-    console.log('It is valid')
     if(!name || !email || !password){
       res.status(400);
       // err.status()
@@ -131,11 +144,7 @@ export const registerUser = asyncHandler(async function(req:Request, res: Respon
     // Store cookies
     const token = generateToken(newUser.id);
     res.cookie('token', token);
-    res.status(201).json({
-      name:newUser.fullname, 
-      email: newUser.email, 
-      token: token
-    });
+    res.status(201).redirect('/users');
     writeUsersData(newUser, userData);
 
   }
@@ -166,10 +175,13 @@ export const loginUser = asyncHandler(async function(req: Request, res: Response
 })  
 
 export const logout = asyncHandler( async function(req: Request, res: Response, next: NextFunction){
-    if(req.cookies.token){
-      res.cookie(req.cookies.token, null) 
+    
+      res.cookie('token', '')
+      req.cookies.token = ''
+      // res.cookie(req.cookies.token, '') 
+      
       res.status(200).redirect('/');
-    }
+   
 })
 
 // Generate Token

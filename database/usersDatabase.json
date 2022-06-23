@@ -16,5 +16,29 @@
       "fullname": "Moses Amaechi",
       "email": "moses.amaechi@decagon.dev",
       "password": "$2a$10$LIUtLTalzOGLQTOpNF2xx.20eZW4QCJTUyzHYy49BvbbcOHzyQana"
+   },
+   {
+      "id": "3ea92b7a-6f3a-48b4-be8c-721e71622e1c",
+      "fullname": "Enoch ",
+      "email": "enoch@gmail.com",
+      "password": "$2a$10$ioDiienOZvep..wo9.f2P.RU7fQoZCBzmNgoTHS/zaua.fRXHU27C"
+   },
+   {
+      "id": "a97980fd-ce2f-41e3-b194-dba0460c760f",
+      "fullname": "Enoch ",
+      "email": "enoch1@gmail.com",
+      "password": "$2a$10$6.vlisQCrtOVUEPvg1hWlep4s7ZwvEIcTAEX.BJsllVDC813d/p9."
+   },
+   {
+      "id": "6ed6f0ed-5c21-420f-9ebd-163b9e3c49ec",
+      "fullname": "Enoch ",
+      "email": "enoch2@gmail.com",
+      "password": "$2a$10$mD519IdZszdZSxTH9O1mjuOCBZchzxrNuYvSAqhd5m9Xwty5IzFZe"
+   },
+   {
+      "id": "2522ebb3-9ec1-4c4c-86e5-0051e5adeec8",
+      "fullname": "Mr. Joshua Adeyemo",
+      "email": "josh@gmail.com",
+      "password": "$2a$10$MSXKAQJgvqauWsb1ZYNKcueEYFF3pAW2XbM1LVC7SVPmocTijIw5K"
    }
 ]
