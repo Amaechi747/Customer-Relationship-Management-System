@@ -1,3 +1,4 @@
+import e from 'express';
 import {fetchData, writeData, writeUpdatedData} from '../utils/utils'
 
 export const findAllData = async function (){
@@ -21,6 +22,8 @@ export const createData = async function(details: InewCustomer){
         lastIndex =  allData[lastIndex - 1].id + 1
     }
     const {fullname, email, gender, phone, address, notes} = await details;
+    const emailValidator = allData.find((data)=> data.email === email);
+    if (emailValidator) throw new Error('User already exists');
     const customerID = lastIndex;
     const customer: IdataSchema = {
         "id": customerID,
