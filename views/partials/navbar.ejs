@@ -9,6 +9,7 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/">Home</a>
           </li>
+        <% try{ %>
           <% if (!token){ %>
           <li class="nav-item">
             <a class="nav-link" href="/users/login">Log In</a>
@@ -21,9 +22,14 @@
             <a class="nav-link" href="/users/logout">Log out</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="/users">Customers</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link"><%= user %></a>
           </li>
           <% } %>
+        <% }catch(error){%>
+        <% } %>
         </ul>
       </div>
     </div>
